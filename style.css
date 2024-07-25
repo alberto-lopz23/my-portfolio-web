@@ -54,8 +54,8 @@ body {
   width: 100%;
 }
 .image img {
-  width: 400px;
-  margin-top: 150px;
+  width:450px;
+  margin-top: 130px;
   margin-left: 100px;
   mask-image: linear-gradient(black 90%, transparent);
 }
@@ -90,7 +90,14 @@ body {
   width: 350px;
   margin: 20px;
 }
+.about-me-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .about-me-image img{ 
+  width: 150px;
+  border-radius: 20px;
  box-shadow: 0 4px 30px rgba(246, 145, 0, 0.5);
 }
 
