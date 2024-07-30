@@ -96,7 +96,7 @@ body {
   align-items: center;
 }
 .about-me-image img{ 
-  width: 150px;
+  width: 300px;
   border-radius: 20px;
  box-shadow: 0 4px 30px rgba(246, 145, 0, 0.5);
 }
