@@ -106,7 +106,7 @@ body {
   font-size: 13px;
   padding: 10px;
   cursor: pointer;
-  transition: all .1s ease-in-out;
+  transition: all .8s ease-in-out;
 }
 
 .parra button:hover {
