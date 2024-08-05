@@ -102,11 +102,12 @@ body {
 }
 
 .parra button {
+  transition: all .8s ease-in-out;
   background: #f69100;
   font-size: 13px;
   padding: 10px;
   cursor: pointer;
-  transition: all .8s ease-in-out;
+  
 }
 
 .parra button:hover {
