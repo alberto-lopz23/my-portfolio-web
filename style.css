@@ -12,7 +12,6 @@
 body {
     background: #21212121;
     font-family: 'Roboto', sans-serif;
-    user-select: none;
 }
 
 
@@ -20,6 +19,7 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
+    position: relative;
 }
 
 .color-black {
@@ -52,7 +52,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 .image img {
   width:450px;
@@ -61,15 +65,23 @@ body {
   mask-image: linear-gradient(black 90%, transparent);
 }
 
-.links {
+.perfil .links {
   display: flex;
   margin-top: 50px;
   font-size: 30px;
+  position: relative;
+  z-index: -99999px;
 }
 
 .links a {
-  margin: 10px;
-    color: #f69100;
+  margin-top: 100px;
+  margin-right: 20px;
+  color: #f69111;
+  transition: all .8s ease-in-out;
+}
+
+.links a:hover {
+  color: #f5b482;
 }
 
 .about-me {
