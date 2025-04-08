@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>acound</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</head>
+<body>
+    <main>
+        <h2>name user</h2>
+
+        <div class="folowers-likes">
+            <p>likes <span class="likes">0</span></p>
+            <button id="like-btn"><i class="bx bx-heart"></i></button>
+        </div>
+
+        <p class="biografia">esta va a ser la biografia del usuario para que pueda describir lo que hace y que quiere hacer
+            en la pagina web de pix-art.
+        </p>
+
+        <section class="publicaciones">
+            <!-- Aquí van las imágenes de las publicaciones -->
+            <div id="sharedArt" class="perfil-images"></div>
+
+        </section>
+        
+        <div id="modal" class="modal" onclick="closeModal()">
+            <span class="prev" onclick="changeImage(-1)">❮</span>
+            <img class="modal-content" id="modalImage">
+            <span class="next" onclick="changeImage(1)">❯</span>
+        </div>
+        
+
+    </main>
+    <script src="/acound-user/index.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</body>
+</html>

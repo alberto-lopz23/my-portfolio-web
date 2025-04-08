@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante El Sabor Único</title>
+    <link rel="stylesheet" href="restaurant.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="menu.html">Menú</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#reservas">Reservar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Bienvenido a El Sabor Único</h1>
+        <p>Disfruta de una experiencia culinaria única con nuestros platos exclusivos.</p>
+    </section>
+
+    <section id="blog">
+        <h2>Blog</h2>
+        <p>En un pequeño pueblo en Italia, un hombre llamado Marco decidió abrir un restaurante
+            después de años de trabajar en la cocina de otros. Su pasión por la comida tradicional
+            italiana lo impulsó a crear un espacio que no solo sirviera platos exquisitos,
+            sino que también contara historias a través de cada receta.
+            Con ingredientes frescos de su propio huerto y un enfoque en la sencillez y autenticidad,
+            el restaurante rápidamente se convirtió en un lugar amado por locales y turistas,
+            y Marco alcanzó su sueño de compartir la verdadera esencia de Italia</p>
+    </section>
+
+
+
+
+
+    <section id="reservas">
+        <h2>Reserva tu Mesa</h2>
+        <form id="reservation-form">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" required>
+            <label for="date">Fecha</label>
+            <input type="date" id="date" required>
+            <label for="time">Hora</label>
+            <input type="time" id="time" required>
+            <button type="submit" class="btn">Reservar</button>
+        </form>
+    </section>
+
+    <section id="galeria">
+        <h2>Galería</h2>
+        <div class="gallery">
+            <img src="./img/parejacomiendo.jpg" alt="Restaurante">
+            <img src="./img/haciendopasta.jpg" alt="Comida">
+            <img src="./img/pizza.jpg" alt="Comida">
+            <img src="./img/comiendogrupo1.jpg" alt="Comida">
+
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+        <p>&copy; 2025 El Sabor Único</p>
+    </footer>
+
+    <script src="restaurant.js"></script>
+</body>
+
+</html>
