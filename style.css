@@ -47,8 +47,30 @@ header.nav nav a {
 }
 
 .sobre-mi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ffffff;
   color: #1a1a1a;
+
+  & .imagen {
+    flex: 1;
+    max-width: 300px;
+    margin-right: 2rem;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 10%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      margin-left: 20px;
+      &:hover {
+        transform: scale(1.05);
+      }
+      
+    }
+  }
 
   padding: 2rem;
   h2 {
