@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Supermercado Demo — Compra Simulada</title>
+  <meta name="description" content="Supermercado demo con carrito simulado, categorías, buscador y checkout falso." />
+  <style>
+    :root{
+      --primary:#1976d2; /* azul profesional */
+      --accent:#ff7043;  /* naranja CTA */
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --radius:12px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#0b1220}
+    a{color:inherit}
+
+    header{background:linear-gradient(90deg,var(--primary),#115293);color:white;padding:14px 18px;position:sticky;top:0;z-index:60}
+    .nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:46px;height:46px;border-radius:10px;background:white;color:var(--primary);display:flex;align-items:center;justify-content:center;font-weight:800}
+    nav ul{display:flex;gap:14px;align-items:center;margin:0;padding:0;list-style:none}
+    .cta{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;font-weight:700}
+
+    .container{max-width:1200px;margin:22px auto;padding:0 18px}
+
+    /* Hero */
+    .hero{background:var(--card);border-radius:14px;padding:20px;display:flex;gap:18px;align-items:center;box-shadow:0 8px 26px rgba(15,20,40,0.06)}
+    .hero .info{flex:1}
+    .hero h1{margin:0;font-size:22px}
+    .hero p{margin:6px 0;color:var(--muted)}
+    .search{display:flex;gap:8px;margin-top:10px}
+    .search input{flex:1;padding:10px;border-radius:10px;border:1px solid #e6eefb}
+    .search button{padding:10px 14px;border-radius:10px;border:0;background:var(--primary);color:white;font-weight:700}
+
+    /* Layout */
+    .main-grid{display:grid;grid-template-columns:250px 1fr 360px;gap:18px;margin-top:18px}
+    .sidebar{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(12,15,30,0.05)}
+    .categories li{list-style:none;padding:8px;border-radius:8px;cursor:pointer;margin-bottom:6px}
+    .categories li.active{background:rgba(25,118,210,0.08);font-weight:700}
+
+    .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+    .product{background:var(--card);padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(12,15,30,0.05);display:flex;flex-direction:column}
+    .prod-img{height:140px;border-radius:8px;overflow:hidden;background:#f1f5f9;display:flex;align-items:center;justify-content:center;font-size:40px}
+    .prod-info{margin-top:10px}
+    .prod-info h4{margin:0 0 6px}
+    .price{font-weight:800;color:var(--primary)}
+    .actions{margin-top:auto;display:flex;gap:8px}
+    .btn{padding:8px 10px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+    .btn-outline{background:#eef3ff;color:var(--primary)}
+    .btn-primary{background:var(--accent);color:white}
+
+    /* Cart */
+    .cart{background:linear-gradient(180deg,#ffffff,#fff7f3);padding:14px;border-radius:12px;position:sticky;top:84px;height:fit-content;box-shadow:0 6px 18px rgba(12,15,30,0.05)}
+    .cart h3{margin-top:0}
+    .cart-list{display:flex;flex-direction:column;gap:10px;max-height:300px;overflow:auto;padding-right:6px}
+    .cart-item{display:flex;gap:10px;align-items:center}
+    .cart-item img{width:56px;height:56px;border-radius:8px;object-fit:cover}
+    .qty{display:flex;gap:6px;align-items:center}
+
+    /* Checkout modal */
+    .modal{position:fixed;inset:0;background:rgba(2,6,23,0.5);display:none;align-items:center;justify-content:center;padding:18px}
+    .modal.show{display:flex}
+    .modal-card{background:var(--card);padding:18px;border-radius:12px;max-width:600px;width:100%}
+
+    footer{margin-top:22px;padding:18px 0;text-align:center;color:var(--muted)}
+
+    @media (max-width:1000px){
+      .main-grid{grid-template-columns:1fr}
+      .cart{position:relative;top:0}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">SM</div>
+        <div>
+          <div style="font-weight:800">Supermercado Demo</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.9)">Compra simulada — Perfecto para pruebas y demos</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#contacto" class="cta">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="info">
+        <h1>Llena tu carrito en segundos — Pago simulado</h1>
+        <p>Catálogo organizado por categorías, carrito persistente y checkout falso para demo UX/UI.</p>
+        <div class="search">
+          <input id="globalSearch" placeholder="Buscar productos, marcas..." />
+          <button onclick="applySearch()">Buscar</button>
+        </div>
+      </div>
+      <div class="center">
+        <div style="padding:6px 10px;background:rgba(25,118,210,0.06);border-radius:10px;font-weight:700">Simulación</div>
+      </div>
+    </section>
+
+    <section class="main-grid">
+      <aside class="sidebar">
+        <h3>Categorías</h3>
+        <ul class="categories" id="categories">
+          <!-- categorías generadas -->
+        </ul>
+        <hr style="margin:12px 0">
+        <h4>Filtros rápidos</h4>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <select id="sort">
+            <option value="default">Orden</option>
+            <option value="price-asc">Precio: bajo a alto</option>
+            <option value="price-desc">Precio: alto a bajo</option>
+          </select>
+          <button class="btn btn-outline" onclick="resetFilters()">Reset</button>
+        </div>
+      </aside>
+
+      <section>
+        <h2 id="productos">Productos</h2>
+        <p style="color:var(--muted);margin-top:4px">Haz clic en "Agregar" para simular compra. El carrito se guarda en tu navegador.</p>
+        <div id="products" class="products" style="margin-top:12px">
+          <!-- productos generados -->
+        </div>
+      </section>
+
+      <aside class="cart" aria-live="polite">
+        <h3>Tu Carrito <span id="cartCount" style="font-weight:700">(0)</span></h3>
+        <div class="cart-list" id="cartList">
+          <!-- items -->
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+          <div>
+            <div class="small muted">Total</div>
+            <div style="font-weight:800;font-size:18px">RD$ <span id="cartTotal">0</span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <button class="btn btn-primary" onclick="openCheckout()">Finalizar compra</button>
+            <button class="btn btn-outline" onclick="clearCart()">Vaciar</button>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      Hecho con intención — Demo de Supermercado • <span id="year"></span>
+    </footer>
+  </main>
+
+  <!-- Modal Checkout -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <h3>Resumen de pedido</h3>
+      <div id="orderSummary" style="margin-top:12px"></div>
+      <div style="display:flex;gap:8px;margin-top:12px;justify-content:flex-end">
+        <button class="btn btn-outline" onclick="closeCheckout()">Volver</button>
+        <button class="btn btn-primary" onclick="confirmOrder()">Confirmar (simulado)</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Productos de ejemplo
+    const PRODUCTS = [
+      {id:1,name:'Manzanas (1kg)',category:'Frutas',price:120, img:'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=600&q=60'},
+      {id:2,name:'Pan integral (500g)',category:'Panadería',price:65,img:'https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=600&q=60'},
+      {id:3,name:'Leche UHT 1L',category:'Lácteos',price:85,img:'https://unsplash.com/es/fotos/sedan-blanco-en-carretera-de-asfalto-gris-durante-el-dia-73XAgT8DOpo'},
+      {id:4,name:'Pechuga de pollo (1kg)',category:'Carnes',price:390,img:'https://images.unsplash.com/photo-1603046891400-5a5b4f7f4d9b?auto=format&fit=crop&w=600&q=60'},
+      {id:5,name:'Arroz (5kg)',category:'Abarrotes',price:420,img:'https://images.unsplash.com/photo-1603052875028-9d4b2f5f3b9d?auto=format&fit=crop&w=600&q=60'},
+      {id:6,name:'Cerveza 330ml (pack 6)',category:'Bebidas',price:450,img:'https://images.unsplash.com/photo-1542444459-db12f6a3a9bd?auto=format&fit=crop&w=600&q=60'},
+      {id:7,name:'Detergente líquido 1L',category:'Limpieza',price:210,img:'https://images.unsplash.com/photo-1586201375761-83865001e280?auto=format&fit=crop&w=600&q=60'},
+      {id:8,name:'Papas fritas 120g',category:'Snacks',price:95,img:'https://images.unsplash.com/photo-1604908177522-1f0b7f0f1d0b?auto=format&fit=crop&w=600&q=60'},
+      {id:9,name:'Huevos (docena)',category:'Lácteos',price:140,img:'https://images.unsplash.com/photo-1598514983050-7f3d8a4a8f2f?auto=format&fit=crop&w=600&q=60'},
+      {id:10,name:'Tomate (1kg)',category:'Frutas',price:110,img:''}
+    ];
+
+    // Estado
+    let state = {
+      products: [...PRODUCTS],
+      category: '',
+      cart: JSON.parse(localStorage.getItem('demo_cart')||'[]')
+    };
+
+    // Utility
+    const $ = (id)=>document.getElementById(id);
+    const format = (n)=>n.toLocaleString('es-DO');
+
+    // Render categorías
+    function renderCategories(){
+      const cats = Array.from(new Set(state.products.map(p=>p.category)));
+      const el = document.getElementById('categories'); el.innerHTML='';
+      const all = document.createElement('li'); all.textContent='Todas'; all.className = state.category===''? 'active':''; all.onclick = ()=>{state.category='';render();}; el.appendChild(all);
+      cats.forEach(c=>{
+        const li = document.createElement('li'); li.textContent = c; li.className = state.category===c? 'active':''; li.onclick = ()=>{state.category = c; render();}; el.appendChild(li);
+      });
+    }
+
+    // Render productos
+    function renderProducts(){
+      const container = document.getElementById('products'); container.innerHTML='';
+      let list = state.products.slice();
+      // aplicar categoría
+      if(state.category) list = list.filter(p=>p.category===state.category);
+      // aplicar sort
+      const sort = document.getElementById('sort').value;
+      if(sort==='price-asc') list.sort((a,b)=>a.price-b.price);
+      if(sort==='price-desc') list.sort((a,b)=>b.price-a.price);
+
+      list.forEach(p=>{
+        const c = document.createElement('div'); c.className='product';
+        c.innerHTML = `
+          <div class="prod-img"><img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover" /></div>
+          <div class="prod-info">
+            <h4>${p.name}</h4>
+            <div class="small muted">${p.category}</div>
+            <div class="price">RD$ ${format(p.price)}</div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-outline" onclick="viewProduct(${p.id})">Ver</button>
+            <button class="btn btn-primary" onclick="addToCart(${p.id})">Agregar</button>
+          </div>
+        `;
+        container.appendChild(c);
+      });
+    }
+
+    // Cart functions
+    function saveCart(){ localStorage.setItem('demo_cart', JSON.stringify(state.cart)); renderCart(); }
+    function addToCart(id){
+      const prod = state.products.find(p=>p.id===id);
+      const existing = state.cart.find(i=>i.id===id);
+      if(existing){ existing.qty += 1; }
+      else state.cart.push({...prod, qty:1});
+      saveCart();
+      flash('Producto agregado');
+    }
+    function removeFromCart(id){ state.cart = state.cart.filter(i=>i.id!==id); saveCart(); }
+    function changeQty(id,delta){ const it = state.cart.find(i=>i.id===id); if(!it) return; it.qty = Math.max(1,it.qty+delta); saveCart(); }
+    function clearCart(){ if(!confirm('Vaciar carrito? Esto es simulado.')) return; state.cart=[]; saveCart(); }
+
+    function renderCart(){
+      const list = document.getElementById('cartList'); list.innerHTML='';
+      const count = state.cart.reduce((s,i)=>s+i.qty,0);
+      $('cartCount').textContent = `(${count})`;
+      let total = 0;
+      if(state.cart.length===0){ list.innerHTML = '<div class="muted">Carrito vacío. Agrega algo.</div>'; }
+      state.cart.forEach(i=>{
+        total += i.price * i.qty;
+        const item = document.createElement('div'); item.className='cart-item';
+        item.innerHTML = `
+          <img src="${i.img}" alt="${i.name}" />
+          <div style="flex:1">
+            <div style="font-weight:700">${i.name}</div>
+            <div class="small muted">RD$ ${format(i.price)}</div>
+            <div class="qty" style="margin-top:6px">
+              <button onclick="changeQty(${i.id},-1)" class="btn btn-outline">-</button>
+              <div style="padding:6px 10px;border-radius:8px;background:#fff">${i.qty}</div>
+              <button onclick="changeQty(${i.id},1)" class="btn btn-outline">+</button>
+              <button onclick="removeFromCart(${i.id})" class="btn" style="background:transparent;color:#b02a37;margin-left:8px">Eliminar</button>
+            </div>
+          </div>
+        `;
+        list.appendChild(item);
+      });
+      $('cartTotal').textContent = format(total);
+    }
+
+    // Buscador
+    function applySearch(){ const q = document.getElementById('globalSearch').value.toLowerCase(); state.products = PRODUCTS.filter(p=> (p.name + ' ' + p.category).toLowerCase().includes(q)); render(); }
+    function resetFilters(){ state.products = [...PRODUCTS]; state.category=''; document.getElementById('sort').value='default'; document.getElementById('globalSearch').value=''; render(); }
+
+    // Producto detalle (simple)
+    function viewProduct(id){ const p = PRODUCTS.find(x=>x.id===id); alert(`${p.name}\nCategoria: ${p.category}\nPrecio: RD$ ${format(p.price)}`); }
+
+    // Checkout
+    function openCheckout(){ if(state.cart.length===0){ alert('El carrito está vacío. Agrega algo.'); return; } const summary = document.getElementById('orderSummary'); summary.innerHTML=''; let total=0; state.cart.forEach(i=>{ total += i.price*i.qty; const div = document.createElement('div'); div.style.display='flex'; div.style.justifyContent='space-between'; div.style.marginBottom='8px'; div.innerHTML = `<div>${i.name} x${i.qty}</div><div>RD$ ${format(i.price*i.qty)}</div>`; summary.appendChild(div); }); const t = document.createElement('div'); t.style.fontWeight='800'; t.style.marginTop='8px'; t.textContent = 'Total: RD$ ' + format(total); summary.appendChild(t); document.getElementById('modal').classList.add('show'); }
+    function closeCheckout(){ document.getElementById('modal').classList.remove('show'); }
+    function confirmOrder(){ // Simulación: guardamos el "pedido" en localStorage como historial
+      const orders = JSON.parse(localStorage.getItem('demo_orders')||'[]');
+      const newOrder = {id:Date.now(),items:state.cart, total: state.cart.reduce((s,i)=>s+i.price*i.qty,0), date:new Date().toISOString()};
+      orders.push(newOrder); localStorage.setItem('demo_orders', JSON.stringify(orders)); state.cart=[]; saveCart(); closeCheckout(); alert('Pedido confirmado (simulado). Historial guardado en localStorage.'); }
+
+    // Pequeña notificación
+    function flash(msg){ const n = document.createElement('div'); n.textContent = msg; n.style.position='fixed'; n.style.right='16px'; n.style.bottom='16px'; n.style.padding='10px 12px'; n.style.background='rgba(2,6,23,0.9)'; n.style.color='white'; n.style.borderRadius='10px'; document.body.appendChild(n); setTimeout(()=>n.remove(),1500); }
+
+    // Inicializar
+    (function init(){
+      document.getElementById('year').textContent = new Date().getFullYear();
+      renderCategories(); renderProducts(); renderCart();
+    })();
+
+    // Exponer para botones inline
+    window.addToCart = addToCart; window.openCheckout = openCheckout; window.closeCheckout = closeCheckout; window.confirmOrder = confirmOrder; window.viewProduct = viewProduct; window.applySearch = applySearch; window.resetFilters = resetFilters; window.changeQty = changeQty; window.removeFromCart = removeFromCart; window.clearCart = clearCart;
+  </script>
+</body>
+</html>

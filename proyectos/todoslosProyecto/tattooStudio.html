@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlackInk Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #111;
+      --primary: #fff;
+      --accent: #e63946;
+      --gray: #999;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1604139091073-6e2c9924cb81?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 4rem;
+      font-family: 'Unbounded', cursive;
+      background: linear-gradient(to right, var(--accent), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    section {
+      padding: 4rem 10%;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .about, .artists, .contact {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+      font-size: 2rem;
+    }
+
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .portfolio img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio img:hover {
+      transform: scale(1.03);
+    }
+
+    .artist {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .artist img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .artist div {
+      flex: 1;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin-bottom: 1rem;
+    }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #000;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>BlackInk Studio</h1>
+  </header>
+
+  <section class="about">
+    <h2>Sobre Nosotros</h2>
+    <p>BlackInk Studio es donde el arte se plasma en piel. Con años de experiencia, nuestro equipo de artistas lleva tu idea a otro nivel, con un estilo único y atención al detalle.</p>
+  </section>
+
+  <section class="portfolio">
+    <img src="https://images.unsplash.com/photo-1586243287039-23f4c8e2e7ab?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=jj-jordan-eenumTwM6Ec-unsplash.jpg" alt="Tatuaje 1" />
+    <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=jasmin-chew-WbWOF8z_NGQ-unsplash.jpg" alt="Tatuaje 2" />
+    <img src="https://images.unsplash.com/photo-1648422204972-4278784a9863?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=caleb-Ra84n1m8pBs-unsplash.jpg" alt="Tatuaje 3" />
+  </section>
+
+  <section class="artists">
+    <h2>Nuestros Artistas</h2>
+    <div class="artist">
+      <img src="https://images.unsplash.com/photo-1620705921541-5b276d7dcdd9?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=andre-miranda-VdTpBlpGzOM-unsplash.jpg" alt="Artista 1" />
+      <div>
+        <h3>Alex Bones</h3>
+        <p>Especializado en blackwork y microrealismo.</p>
+      </div>
+    </div>
+    <div class="artist">
+      <img src="https://images.unsplash.com/photo-1482329033286-79a3d24413b4?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=allef-vinicius-vKIc4k6dm10-unsplash.jpg" alt="Artista 2" />
+      <div>
+        <h3>Ricky Shadows</h3>
+        <p>Estilo tradicional con toques modernos y creativos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Agenda tu cita</h2>
+    <p>📍 Santo Domingo, RD</p>
+    <p>📞 <a href="tel:+18095551234">809-555-1234</a></p>
+    <p>📩 <a href="mailto:contacto@blackink.com">contacto@blackink.com</a></p>
+  </section>
+
+  <footer>
+    © 2025 BlackInk Studio - Todos los derechos reservados.
+  </footer>
+
+  <script>
+    // Animación al hacer scroll
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

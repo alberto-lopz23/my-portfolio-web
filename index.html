@@ -1,194 +1,75 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alberto López Checo</title>
-  <link href='/style.css' rel='stylesheet'>
-  <link rel="shortcut icon" href="/ima/favicon.jpeg" type="image/x-icon">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-
-  <meta name="desciption" content="Portfolio de Alberto lopez Checo en el cual tiene un desgloce sobre mis 
-  proyectos y habilidades" />
-  <meta name="author" content="Alberto lopez Checo" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.acheco.dev/" />
-  <meta property="og:site_name" content="Alberto lopez Checo" />
-
-  <meta property="og:title" content="Alberto lopez Checo" />
-  <meta property="og:description" content="Portfolio de Alberto lopez Checo en el cual tiene un desgloce sobre mis 
-  proyectos y habilidades" />
-
-  <meta property="og-image"
-  content="https://www.acheco.dev/og.png" />
-
-
-  <meta property="og:locale" content="es_ES" />
-  <meta property="og:locale:alternate" content="en_US" />
-  <!-- HTML Meta Tags -->
-<meta name="description" content="Portfolio de Alberto lopez Checo en el cual tiene un desgloce sobre mis 
-  proyectos y habilidades">
-
-<!-- Facebook Meta Tags -->
-<meta property="og:url" content="https://www.acheco.dev/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Alberto lopez Checo">
-<meta property="og:description" content="Portfolio de Alberto lopez Checo en el cual tiene un desgloce sobre mis 
-  proyectos y habilidades">
-<meta property="og:image" content="https://opengraph.b-cdn.net/production/images/10bb8cc3-ff57-4042-ba2a-02a82e4b7695.png?token=Ot2PQGrNKAO6s1DJY1qG1ESu4xgGSYK77eA1I4wqCX8&height=604&width=1200&expires=33280143776">
-
-<!-- Twitter Meta Tags -->
-<meta name="twitter:card" content="summary_large_image">
-<meta property="twitter:domain" content="acheco.dev">
-<meta property="twitter:url" content="https://www.acheco.dev/">
-<meta name="twitter:title" content="Alberto lopez Checo">
-<meta name="twitter:description" content="Portfolio de Alberto lopez Checo en el cual tiene un desgloce sobre mis 
-  proyectos y habilidades">
-<meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/10bb8cc3-ff57-4042-ba2a-02a82e4b7695.png?token=Ot2PQGrNKAO6s1DJY1qG1ESu4xgGSYK77eA1I4wqCX8&height=604&width=1200&expires=33280143776">
-
-<!-- Meta Tags Generated via https://www.opengraph.xyz -->
-
-  <meta name="instagram:card" content="summary_large_image" />
-  <meta name="instagram:site_name" content="Alberto lopez Checo" />
-  <meta name="instagram:creator" content="Alberto lopez Checo" />
-  <meta name="instagram:title" content="Alberto lopez Checo" />
-  <meta name="instagram:description" content="Portfolio de Alberto lopez Checo en el cual tiene un desgloce sobre mis 
-  proyectos y habilidades" />
-
-
-
-  
+  <title>Portafolio de Alberto</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script defer src="./main.js"></script>
 </head>
-
-
 <body>
-  <section class="perfil">
-    <div class="color-black">
-      <h2>I'm Alberto lopez Checo</h2>
-      <p>freelancer, web designer and developer</p>
-    </div>
-    <div class="color-orange"></div>
+  <header class="nav">
+    <h1>Alberto López Checo</h1>
+    <nav>
+      <a href="#inicio">inicio</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="proyectos/proyectos.html">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
 
-    <div class="image">
-      <div class="links">
+  <section id="inicio" class="section inicio">
+    <h2>Bienvenido</h2>
+    <p>Desarrollador web dominicano con flow. Creamos con propósito.</p>
+  </section>
 
-        <a target="_blank" href="https://github.com/alberto-lopz23"><i class="bx bxl-github"></i></a>
-        <a target="_blank" href="https://www.linkedin.com/in/alberto-l%C3%B3pez-checo-92a963271?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="bx bxl-linkedin"></i></a>
-        <a target="_blank" href="https://www.instagram.com/albe_lop?igsh=MTlteTJobmNjMjVn"><i class="bx bxl-instagram"></i></a>
+  <section id="sobre-mi" class="section sobre-mi">
+    <h2>About me</h2>
+    <p>Hola, soy Alberto. Me gusta crear experiencias web atractivas y funcionales. Este portafolio refleja lo que hago con cariño y dedicación desde RD 🇩🇴.
+        como pueden ver soy Dominicano, tengo 20 años y soy desarrollador web, me encanta crear cosas nuevas y aprender cada día más.
+        <br>
+        <br>
+        Me encanta enfrentar retos y encontrar soluciones creativas. Siempre estoy buscando aprender nuevas tecnologías y mejorar mis habilidades.
+        En mi tiempo libre disfruto de la música, el cine y la fotografía. Creo que la creatividad es clave en todo lo que hago.
+        Si quieres trabajar conmigo o simplemente charlar, no dudes en escribirme. Estoy aquí para ayudarte y colaborar en proyectos interesantes.
+    </p>
+
+    <span>¡Si no existe lo creamos! Sobre todo con flow</span>
+  </section>
+
+  <section id="proyectos" class="section proyectos">
+    <h2>Proyectos Destacados</h2>
+    <div class="bandera-dominicana">
+      <div class="color azul">
+        <div class="proyecto" id="proyecto-1"></div>
       </div>
-      <img src="/ima/ftperfil.png" alt="foto de perfil">
+      <div class="color rojo">
+        <div class="proyecto" id="proyecto-2"></div>
+      </div>
+      <div class="color rojo">
+        <div class="proyecto" id="proyecto-3"></div>
+      </div>
+      <div class="color azul">
+        <div class="proyecto" id="proyecto-4"></div>
+      </div>
     </div>
+    <a href="/proyectos/proyectos.html" class="boton-ver-mas">Ver todos los proyectos</a>
   </section>
 
-  <section class="about-me">
-    <div class="about-me-image">
-
-      <img src="/ima/about-me-ima.jpeg" alt="foto de Alberto">
-    </div>
-
-    <div class="parra">
-      <h2>About me</h2>
-      <p>
-        Passionate about Web Design and Development
-    </p>
-    
-    <p>
-        A few years ago, I discovered the beauty of creating and owning small digital worlds. 
-        The ability to design, build, and transform websites has allowed me to explore my creativity and
-         technical skills. Each project is an opportunity to build something beautiful and functional,
-          bringing ideas to life and improving the user experience every step of the way.
-    </p>
-    
-    </div>
-
-
-  </section>
-
-  <section class="proyects">
-    <div class="title">
-
-      <h3>Proyectos</h3>
-    </div>
-
-
-    <div class="div-proyects">
-      <img src="/ima/arkanoid-ame.webp" alt="imagen de proyecto">
-      <a taget="_blank" href="/ejemplos/arkanoid-game-main/index.html">Arkanoid Game</a>
-      <p>Juego mítico y clásico de Arkanoid para controlar con teclado</p>
-
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JAVASCRIPT</li>
-      </ul>
-
-        <a href="https://github.com/alberto-lopz23/arkanoid-game.git" target="_blank">Código</a>
+  <section id="contacto" class="section contacto">
+    <h2>Contacto</h2>
+    <p>Puedes escribirme a: <a href="mailto:albertolopezcheco3@gmail.com">albertolopezcheco3@gmail.com</a> </p>
       
-    </div>
-    <div class="div-proyects">
-      <img src="/ima/mokey-tipe.webp" alt="imagen de proyecto">
-      <a taget="_blank" href="/ejemplos/monkey-type-main/index.html">Mokeytipe</a>
-      <p>este es un monkey type para practicar la escritura y velocidad con la que escribes tus palabras.</p>
-
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JAVASCRIPT</li>
-      </ul>
-
-      <a href="https://github.com/alberto-lopz23/monkey.type" class="enlace"><i class="bx bxl-github"></i> Codigo</a>
-    </div>
-    <div class="div-proyects">
-      <img src="/ima/the-famous-houses.png" alt="imagen de proyecto">
-      <a taget="_blank" href="/ejemplos/the house famous/index.html">The fomous houses</a>
-      <p>Proyecto sobre casas de famosos </p>
-
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-      </ul>
-
-    </div>
-    <div class="restaurant">
-      <img src="/ima/restaurante.png" alt="imagen de proyecto">
-      <a taget="_blank" href="./ejemplos/restaurante/restaurant.html">restaurant italiano</a>
-      <p>Diseño de restaurant italiano con diseño responsive adaptado para todo tipo de pantallas</p>
-
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>javascript</li>
-      </ul>
-
-      <a target="_blank" href="https://github.com/alberto-lopz23/my-first-proyect.git" class="enlace"><i
-          class="bx bxl-github"></i> Código</a>
-    </div>
-
-    <div class="div-proyects">
-      <img src="/ima/pixart.jpeg" alt="imagen de proyecto">
-      <a taget="_blank" href="/ejemplos/pix-art-main/index.html">tu pix</a>
-      <p>con este podras dibujar tu imagen en pixer y podras descargarla como png.</p>
-
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>javascript</li>
-      </ul>
-
-      <a target="_blank" href="https://github.com/alberto-lopz23/pix-art" class="enlace"><i class="bx bxl-github"></i>
-        Código</a>
-    </div>
+      
+    <p>O seguirme en mis redes sociales:</p>
+    <ul class="redes-sociales">
+      <li><a href="https://www.instagram.com/albe_lop/" target="_blank">Instagram</a></li>
+      <li><a href="https://www.linkedin.com/in/alberto-lopez-checo-3b0a1b1b2/" target="_blank">LinkedIn</a></li>
+    </ul>
   </section>
 
-  <section class="contact">
-    <h3>Contacta conmigo:</h3>
-    <a href="https://www.instagram.com/albe_lop?igsh=MTlteTJobmNjMjVn"><i class="bx bxl-instagram"></i>Instagram</a>
-    <a href="https://www.linkedin.com/in/alberto-l%C3%B3pez-checo-92a963271?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="bx bxl-linkedin"></i>Linkedin</a>
-  </section>
-  <script defer type="text/javascript" src="/main.js"></script>
+  <footer class="footer">
+    <p>Hecho con flow 🇩🇴 por Alberto &copy; 2025</p>
+  </footer>
 </body>
-
 </html>

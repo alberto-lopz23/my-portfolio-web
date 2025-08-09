@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Ropa | Acheco</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #f9f9f9;
+      color: #222;
+      line-height: 1.6;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 1.5rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header h1 {
+      font-size: 1.8rem;
+    }
+    nav {
+      margin-top: 1rem;
+    }
+    nav a {
+      margin-right: 1rem;
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1470&q=80') no-repeat center/cover;
+      color: white;
+      padding: 8rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    .hero h2 {
+      font-size: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      animation: fadeIn 1s ease-in;
+    }
+    .producto {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .producto:hover {
+      transform: translateY(-5px);
+    }
+    .producto img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    .producto-info {
+      padding: 1.2rem;
+    }
+    .producto-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .producto-info span {
+      color: #777;
+      font-size: 1rem;
+    }
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Acheco Clothes</h1>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Hombres</a>
+      <a href="#">Mujeres</a>
+      <a href="#">Ofertas</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Moda que te define</h2>
+    <p>Explora nuestra nueva colección con estilo y actitud</p>
+  </section>
+
+  <section class="productos">
+    <div class="producto">
+      <img src="https://images.unsplash.com/photo-1602810319250-a663f0af2f75?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=nimble-made-m2z2wJ1XX6Q-unsplash.jpg" alt="Camisa blanca">
+      <div class="producto-info">
+        <h3>Camisa Casual</h3>
+        <span>$200</span>
+      </div>
+    </div>
+    <div class="producto">
+      <img src="https://images.unsplash.com/photo-1559038217-3fb2db6186f8?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=roland-denes--JD6h3h9Ubk-unsplash.jpg" alt="Chaqueta negra">
+      <div class="producto-info">
+        <h3>Chaqueta Streetwear</h3>
+        <span>$800</span>
+      </div>
+    </div>
+    <div class="producto">
+      <img src="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=kai-s-photography-2s3GhhJz2uY-unsplash.jpg" alt="Jeans">
+      <div class="producto-info">
+        <h3>Jeans Slim Fit</h3>
+        <span>$750</span>
+      </div>
+    </div>
+    <div class="producto">
+      <img src="https://images.unsplash.com/photo-1508742345712-0656a285ac27?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=tamara-bellis-8Aq_zfMHPbU-unsplash.jpg" alt="Vestido rojo">
+      <div class="producto-info">
+        <h3>Vestido Rojo</h3>
+        <span>$300</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Acheco Clothes. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todos los Proyectos</title>
+  <link rel="stylesheet" href="./proyectos.css" />
+
+  <style>
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: #f8f9fa;
+  color: #222;
+}
+
+.nav {
+  background: linear-gradient(90deg, #002d62, #ffffff, #ce1126);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #002d62;
+}
+
+.grid-proyectos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.tarjeta {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.tarjeta h3 {
+  margin: 1rem;
+  font-size: 1.2rem;
+}
+
+.tarjeta a {
+  display: block;
+  margin: 0 1rem 1rem;
+  padding: 0.6rem;
+  background: #002d62;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.tarjeta a:hover {
+  background: #ce1126;
+}
+
+.footer {
+  background: #002d62;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <h1>Mis Proyectos</h1>
+  <nav>
+    <a href="../index.html">Inicio</a>
+  </nav>
+</header>
+
+<main class="contenedor">
+  <h2>Explora mis proyectos</h2>
+  <div class="grid-proyectos">
+    <div class="tarjeta">
+      <img src="../proyectos/imagenes/restaurant.png" alt="Proyecto 1">
+      <h3>Restaurant</h3>
+      <a href="../proyectos/todoslosProyecto/restaurant.html">Ver Proyecto</a>
+    </div>
+    <div class="tarjeta">
+      <img src="../proyectos/imagenes/clothes.png" alt="Proyecto 2">
+      <h3>Clathes</h3>
+      <a href="../proyectos/todoslosProyecto/clathes.html">Ver Proyecto</a>
+    </div>
+    <div class="tarjeta">
+      <img src="../proyectos/imagenes/concepcionario.png" alt="Proyecto 3">
+      <h3>Concepcionario</h3>
+      <a href="../proyectos/todoslosProyecto/concepcionario.html">Ver Proyecto</a>
+    </div>
+    <div class="tarjeta">
+      <img src="../proyectos/imagenes/porfolio.png" alt="Proyecto 4">
+      <h3>Portfolio</h3>
+      <a href="../proyectos/todoslosProyecto/portfolio.html">Ver Proyecto</a>
+    </div>
+    <div class="tarjeta">
+      <img src="../proyectos/imagenes/superMercado.png" alt="Proyecto 5">
+      <h3>SuperMercado</h3>
+      <a href="../proyectos/todoslosProyecto/superMercado.html">Ver Proyecto</a>
+    </div>
+    <div class="tarjeta">
+      <img src="../proyectos/imagenes/tattoo.png" alt="Proyecto 6">
+      <h3>BlackInc Studio</h3>
+      <a href="../proyectos/todoslosProyecto/tattooStudio.html">Ver Proyecto</a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Hecho con flow 🇩🇴 por Alberto &copy; 2025</p>
+</footer>
+
+</body>
+</html>

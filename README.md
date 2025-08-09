@@ -1,1 +1,0 @@
-this my portfolio web site. i made it in html and css.
