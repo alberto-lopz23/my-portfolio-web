@@ -199,6 +199,63 @@ header.nav nav a {
   background-color: #334f8d;
 }
 
+/* Escena con perspectiva */
+.lista-habilidades {
+  display: grid;
+  place-items: center;
+  perspective: 1000px;
+  overflow: hidden;
+
+}
+
+/* El anillo (antes era ul.lista-habilidades, ahora es .orbit) */
+.orbit {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transform-style: preserve-3d;
+  animation: orbitar 15s linear infinite;
+  --radius: 140px;
+}
+
+/* Íconos distribuidos */
+.orbit li {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: rotateY(var(--angle)) translateZ(var(--radius)) 
+             rotateY(calc(-1 * var(--angle)));
+}
+
+.orbit li img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+
+/* Distribución de 7 íconos */
+.orbit li:nth-child(1) { --angle: 0deg; }
+.orbit li:nth-child(2) { --angle: 51deg; }
+.orbit li:nth-child(3) { --angle: 102deg; }
+.orbit li:nth-child(4) { --angle: 153deg; }
+.orbit li:nth-child(5) { --angle: 204deg; }
+.orbit li:nth-child(6) { --angle: 255deg; }
+.orbit li:nth-child(7) { --angle: 306deg; }
+
+/* Animación orbital */
+@keyframes orbitar {
+  from { transform: rotateY(0deg) rotateX(15deg); }
+  to   { transform: rotateY(360deg) rotateX(15deg); }
+}
+
+
+
 .contacto {
   text-align: center;
   background-color: #ededed;
